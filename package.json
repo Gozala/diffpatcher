@@ -1,0 +1,37 @@
+{
+  "name": "diffpatcher",
+  "id": "diffpatcher",
+  "version": "0.0.1",
+  "description": "Utilities for diff-ing & patch-ing hashes",
+  "keywords": [
+    "diff", "patch", "rebase", "hash", "changes", "versions"
+  ],
+  "author": "Irakli Gozalishvili <rfobic@gmail.com> (http://jeditoolkit.com)",
+  "homepage": "https://github.com/Gozala/diffpatcher",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gozala/diffpatcher.git",
+    "web": "https://github.com/Gozala/diffpatcher"
+  },
+  "bugs": {
+    "url": "http://github.com/Gozala/diffpatcher/issues/"
+  },
+  "devDependencies": {
+    "test": ">=0.4.4",
+    "repl-utils": ">=1.0.0"
+  },
+  "main": "./diffpatcher.js",
+  "scripts": {
+    "test": "node test/test-all.js",
+    "repl": "node node_modules/repl-utils"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Gozala/diffpatcher/License.md"
+    }
+  ],
+  "dependencies": {
+    "method": "~0.1.1"
+  }
+}
