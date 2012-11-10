@@ -32,6 +32,6 @@
     }
   ],
   "dependencies": {
-    "method": "~0.1.1"
+    "method": "~1.0.0"
   }
 }
