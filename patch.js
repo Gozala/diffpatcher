@@ -13,7 +13,7 @@ var rebase = require("./rebase")
 //   "item-id-1": { completed: false }, // update
 //   "item-id-2": null                  // delete
 // })
-var patch = method()
+var patch = method("patch")
 patch.define(Object, function patch(hash, delta) {
   return rebase({}, hash, delta)
 })
