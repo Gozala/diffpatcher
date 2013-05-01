@@ -1,7 +1,7 @@
 {
   "name": "diffpatcher",
   "id": "diffpatcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilities for diff-ing & patch-ing hashes",
   "keywords": [
     "diff", "patch", "rebase", "hash", "changes", "versions"
@@ -35,6 +35,6 @@
     }
   ],
   "dependencies": {
-    "method": "~1.0.0"
+    "method": "~2.0.0"
   }
 }

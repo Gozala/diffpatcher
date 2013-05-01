@@ -9,7 +9,7 @@ var method = require("method")
 // Example
 //
 // diff(state) // => { "item-id-1": { title: "some title" } "item-id-2": null }
-var diff = method("diff")
+var diff = method("diff@diffpatcher")
 
 // diff between `null` / `undefined` to any hash is a hash itself.
 diff.define(null, function(from, to) { return to })
