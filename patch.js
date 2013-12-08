@@ -1,6 +1,6 @@
 "use strict";
 
-var method = require("method")
+var method = require("method/core")
 var rebase = require("./rebase")
 
 // Method is designed to work with data structures representing application
