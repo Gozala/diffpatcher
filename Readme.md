@@ -2,6 +2,8 @@
 
 [![Build Status](https://secure.travis-ci.org/Gozala/diffpatcher.png)](http://travis-ci.org/Gozala/diffpatcher)
 
+[![Browser support](https://ci.testling.com/Gozala/diffpatcher.png)](http://ci.testling.com/Gozala/diffpatcher)
+
 Diffpatcher is a small library that lets you treat hashes as if they were
 git repositories.
 
