@@ -12,5 +12,3 @@ exports["test patch(a, diff(a, b)) => b"] = function(assert) {
 
   assert.deepEqual(patch(a, diff(a, b)), b, "patch(a, diff(a, b)) => b")
 }
-
-require("test").run(exports)

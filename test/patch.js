@@ -49,6 +49,3 @@ exports["test patch nested data"] = function(assert) {
                    { a: { e: 3 }, c: { d: 4 } },
                    "nested structures can also be patched")
 }
-
-if (require.main === module)
-  require("test").run(exports)

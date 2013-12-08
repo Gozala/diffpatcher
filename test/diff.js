@@ -57,6 +57,3 @@ exports["test add update"] = function(assert) {
                    { a: 1, b: { c: { d: 2 } } },
                    "missing nested propertes are deleted")
 }
-
-if (require.main === module)
-  require("test").run(exports)
