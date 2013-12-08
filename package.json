@@ -37,7 +37,7 @@
     "browsers": [
       "ie/9..latest",
       "chrome/25..latest",
-      "firefox/10..latest",
+      "firefox/20..latest",
       "safari/6..latest",
       "opera/11.0..latest",
       "iphone/6..latest",
