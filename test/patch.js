@@ -15,6 +15,38 @@ exports["test patch delete with void"] = function(assert) {
                    "void(0) removes property")
 }
 
+exports["test patch delete missing"] = function(assert) {
+  assert.deepEqual(patch({ a: 1, b: 2 }, { c: null }),
+                   { a: 1, b: 2 },
+                   "null removes property if exists");
+
+  assert.deepEqual(patch({ a: 1, b: 2 }, { c: void(0) }),
+                   { a: 1, b: 2 },
+                   "void removes property if exists");
+}
+
+exports["test delete deleted"] = function(assert) {
+  assert.deepEqual(patch({ a: null, b: 2, c: 3, d: void(0)},
+                         { a: void(0), b: null, d: null }),
+                   {c: 3},
+                  "removed all existing and non existing");
+}
+
+exports["test update deleted"] = function(assert) {
+  assert.deepEqual(patch({ a: null, b: void(0), c: 3},
+                         { a: { b: 2 } }),
+                   { a: { b: 2 }, c: 3 },
+                   "replace deleted");
+}
+
+exports["test patch delete with void"] = function(assert) {
+  var hash = { a: 1, b: 2 }
+
+  assert.deepEqual(patch(hash, { a: void(0) }), { b: 2 },
+                   "void(0) removes property")
+}
+
+
 exports["test patch addition"] = function(assert) {
   var hash = { a: 1, b: 2 }
 

@@ -1,32 +1,35 @@
 "use strict";
 
+var nil = {}
+var owns = ({}).hasOwnProperty
+
 function rebase(result, parent, delta) {
-  Object.keys(parent).forEach(function(key) {
-    // If `parent[key]` is `null` it means attribute was deleted in previous
-    // update. We skip such properties as there is no use in keeping them
-    // around. If `delta[key]` is `null` we skip these properties too as
-    // the have being deleted.
-    if (!(parent[key] == null || (key in delta && delta[key] == null)))
-      result[key] = parent[key]
-  }, result)
-  Object.keys(delta).forEach(function(key) {
-    if (key in parent) {
-      var current = delta[key]
-      var previous = parent[key]
-      if (current === previous) current = current
-      // If `delta[key]` is `null` it's delete so we just skip property.
-      else if (current == null) current = current
-      // If value is of primitive type (function or regexps should not
-      // even be here) we just update in place.
-      else if (typeof(current) !== "object") result[key] = current
-      // If previous value associated with this key was primitive
-      // and it's mapped to non primitive
-      else if (typeof(previous) !== "object") result[key] = current
-      else result[key] = rebase({}, previous, current)
-    } else {
-      result[key] = delta[key]
+  var key, current, previous, update
+  for (key in parent) {
+    if (owns.call(parent, key)) {
+      previous = parent[key]
+      update = owns.call(delta, key) ? delta[key] : nil
+      if (previous === null) continue
+      else if (previous === void(0)) continue
+      else if (update === null) continue
+      else if (update === void(0)) continue
+      else result[key] = previous
     }
-  })
+  }
+  for (key in delta) {
+    if (owns.call(delta, key)) {
+      update = delta[key]
+      current = owns.call(result, key) ? result[key] : nil
+      if (current === update) continue
+      else if (update === null) continue
+      else if (update === void(0)) continue
+      else if (current === nil) result[key] = update
+      else if (typeof(update) !== "object") result[key] = update
+      else if (typeof(current) !== "object") result[key] = update
+      else result[key]= rebase({}, current, update)
+    }
+  }
+
   return result
 }
 
